@@ -37,6 +37,24 @@ Welcome to **ShopiTry**—a production-ready, decoupled microservices e-commerce
 - **Process Manager**: PM2 for EC2 process resilience.
 
 ---
+## ☁️ DevOps & Cloud Engineering Highlights
+As a DevOps Engineer, I architected and optimized the deployment topology of the ShopiTry cluster on AWS, focusing on high availability, serverless cost-efficiency, and strict security boundaries.
+
+### 🏗️ Infrastructure as Code (IaC) & Cloud Primitives
+* **Decoupled Architecture:** Segregated stateful VM workloads (**AWS EC2**) from stateless frontends and serverless event-driven processes.
+* **Serverless Cost Optimization:** Refactored heavy compute layers (Payment & Notifications) into standalone **AWS Lambda** functions with local Express wrappers, reducing compute overhead by avoiding 24/7 idle server costs.
+* **Global Content Delivery:** Hosted the Storefront and Admin React SPAs on **Amazon S3** static hosting, fronted by **AWS CloudFront CDN** to minimize global asset latency and leverage edge-caching.
+
+### 🔒 Cloud Security & Traffic Orchestration
+* **Centralized Ingress Control:** Configured the **ShopiTry Gateway Service** to act as a secure Reverse Proxy, handling single-entry CORS management, strict rate-limiting, and perimeter defense before routing internal traffic.
+* **Least Privilege Access:** Implemented strict IAM roles and secure cryptographic SSH keys for instance management, along with precise environment variables to protect database connection strings.
+* **Process Resilience:** Configured **PM2 Process Manager** on EC2 environments to manage node cluster lifecycles, enabling automatic self-healing, log rotation, and zero-downtime microservice reboots.
+
+### ⚙️ Automation Scripts Included
+To eliminate environmental mismatch and manual configuration bottlenecks, I wrote custom operational utility scripts:
+* `cleanup-ports.js`: Automatically detects and terminates orphaned processes binding onto ports `5000-5005`, preventing runtime deployment collisions.
+* `start-all.js`: A root cluster orchestrator to programmatically boot up all 6 multi-runtime microservices concurrently with proper log streaming.
+
 
 ## 🏗️ Ecosystem Architecture
 
